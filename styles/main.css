@@ -1,0 +1,359 @@
+/* Import Google Font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.cta-button {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.scroll-indicator {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 1.2s forwards;
+}
+
+/* Floating Shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(40px);
+}
+
+.shape-1 {
+  background: var(--primary, #3490dc);
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -50px;
+  animation: float1 18s ease-in-out infinite alternate;
+}
+
+.shape-2 {
+  background: var(--secondary, #ffed4a);
+  width: 400px;
+  height: 400px;
+  bottom: -150px;
+  left: -100px;
+  animation: float2 15s ease-in-out infinite alternate;
+}
+
+.shape-3 {
+  background: var(--primary, #3490dc);
+  width: 200px;
+  height: 200px;
+  bottom: 100px;
+  right: 20%;
+  animation: float3 12s ease-in-out infinite alternate;
+}
+
+/* Service Cards Animation */
+.service-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.service-card:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.service-card:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.service-card:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+/* Project Cards Styles */
+.project-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  transition: all 0.3s ease-in-out;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.project-card img {
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card:hover .project-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project Filter Buttons */
+.project-filter {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-filter::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary, #3490dc);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.project-filter:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Project card appearance animation delay based on position */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Image loading animation */
+.project-card .image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* About Page Specific Styles */
+.tech-icon {
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: translateY(-5px);
+}
+
+.skill-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+.profile-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    var(--primary) 0deg,
+    transparent 60deg,
+    transparent 300deg,
+    var(--primary) 360deg
+  );
+  opacity: 0.1;
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.education-card, .experience-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover, .experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Skills Grid Animation */
+.skills-grid {
+  display: grid;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.skills-grid > div {
+  transition: all 0.3s ease;
+}
+
+.skills-grid > div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Progressive Loading Animation for Skill Bars */
+.skill-progress {
+  width: 0;
+  transition: width 1s ease-out;
+}
+
+.skill-progress.animate {
+  width: var(--progress);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 30px);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, -40px);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, -20px);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+/* Fade-in Animation - keeping this since it's used by JavaScript */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar - only keeping this since it's not easily done with Tailwind */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3490dc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2779bd;
+}
+
+/* Media Queries for better responsiveness */
+@media (max-width: 768px) {
+  .shape-1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .shape-2 {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .shape-3 {
+    width: 150px;
+    height: 150px;
+  }
+}
